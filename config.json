@@ -1,9 +1,9 @@
 {
   "db": {
     "host": "127.0.0.1",
-    "name": "test_db",
-    "user": "myuser",
-    "password": "123#qwe"
+    "name": "userDB",
+    "user": "root",
+    "password": "password"
   },
   "cookie": {
     "key": "secret key",

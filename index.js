@@ -1,6 +1,8 @@
+const Sequelize = require("sequelize");
 const config = require("./config.json");
-const server = require("./server")(config);
 
+const db = require("./context")(Sequelize, config);
+const server = require("./server")(db, config);
 const port = 3000;
 
 (async () => {
