@@ -1,7 +1,7 @@
 {
   "db": {
     "host": "127.0.0.1",
-    "name": "userDB",
+    "name": "onionDB",
     "user": "root",
     "password": "password"
   },

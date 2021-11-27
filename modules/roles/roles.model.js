@@ -1,5 +1,3 @@
-const { Sequelize } = require("sequelize/dist");
-
 module.exports = (Sequelize, sequelize) => {
   return sequelize.define("Roles", {
     id: {
