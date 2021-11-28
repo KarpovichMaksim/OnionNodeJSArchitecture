@@ -1,6 +1,10 @@
 const Promise = require("bluebird");
 
-class UsersService {
+const CrudService = require("../crud/crud.service");
+
+//const hash = require('../helpers/hash');
+
+class UsersService extends CrudService {
   constructor(usersRepository, rolesRepository, errors) {
     super(usersRepository, errors);
 
@@ -9,7 +13,7 @@ class UsersService {
 
   async update(data) {
     let user = {
-      password: data.password,
+      password: data.password && hash.get(data.password),
       firstName: data.firstName,
       lastName: data.lastName,
     };
