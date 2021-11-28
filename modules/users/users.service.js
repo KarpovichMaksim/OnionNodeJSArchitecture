@@ -2,7 +2,7 @@ const Promise = require("bluebird");
 
 const CrudService = require("../crud/crud.service");
 
-//const hash = require('../helpers/hash');
+const hash = require("../../helpers/hash");
 
 class UsersService extends CrudService {
   constructor(usersRepository, rolesRepository, errors) {
