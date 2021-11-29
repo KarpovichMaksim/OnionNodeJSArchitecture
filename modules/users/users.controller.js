@@ -1,4 +1,4 @@
-const CrudController = require("./crud");
+const CrudController = require("../crud/crud.controller");
 
 class UsersController extends CrudController {
   constructor(usersService) {
