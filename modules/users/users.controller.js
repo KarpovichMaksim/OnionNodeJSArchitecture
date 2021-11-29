@@ -1,4 +1,6 @@
-class UsersController {
+const CrudController = require("./crud");
+
+class UsersController extends CrudController {
   constructor(usersService) {
     super(usersService);
 
