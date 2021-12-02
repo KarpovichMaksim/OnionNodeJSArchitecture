@@ -23,8 +23,8 @@ class UsersService extends CrudService {
 
   async grant(userId, roleId) {
     const [user, role] = await Promise.all([
-      this.repository.findById(userId),
-      this.rolesRepository.findById(roleId),
+      this.repository.findByPk(userId),
+      this.rolesRepository.findByPk(roleId),
     ]);
 
     if (!user || !role) {
@@ -36,8 +36,8 @@ class UsersService extends CrudService {
 
   async revoke(userId, roleId) {
     const [user, role] = await Promise.all([
-      this.repository.findById(userId),
-      this.rolesRepository.findById(roleId),
+      this.repository.findByPk(userId),
+      this.rolesRepository.findByPk(roleId),
     ]);
 
     if (!user || !role) {

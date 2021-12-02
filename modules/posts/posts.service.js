@@ -26,7 +26,7 @@ class PostsService extends CrudService {
   }
 
   async upVote(id) {
-    const post = await this.repository.findById(id);
+    const post = await this.repository.findByPk(id);
 
     if (!post) {
       throw this.errors.notFound;
@@ -36,7 +36,7 @@ class PostsService extends CrudService {
   }
 
   async downVote(id) {
-    const post = await this.repository.findById(id);
+    const post = await this.repository.findByPk(id);
 
     if (!post) {
       throw this.errors.notFound;
