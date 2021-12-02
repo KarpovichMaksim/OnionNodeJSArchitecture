@@ -5,7 +5,7 @@ module.exports = (usersService, config) =>
     let userId = req.signedCookies[config.cookie.auth];
 
     if (userId) {
-      req.user = await usersService.get(userId);
+      req.user = userId;
     }
 
     next();
