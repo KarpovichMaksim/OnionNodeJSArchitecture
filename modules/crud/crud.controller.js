@@ -1,6 +1,6 @@
 const express = require("express");
 
-const wrap = require("../helpers/wrap");
+const wrap = require("../../helpers/wrap");
 
 class CrudController {
   constructor(service) {

@@ -38,7 +38,7 @@ module.exports = (db, config) => {
   const cache = require("./global-controllers/cache")(cacheService);
   const error = require("./global-controllers/error");
 
-  const apiController = require("./controllers/api")(
+  const apiController = require("./modules/api")(
     postsService,
     usersService,
     rolesService,

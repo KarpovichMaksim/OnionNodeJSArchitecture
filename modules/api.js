@@ -10,10 +10,16 @@ module.exports = (
 ) => {
   const router = express.Router();
 
-  const postsController = require("./posts")(postsService, cacheService);
-  const usersController = require("./users")(usersService);
-  const rolesController = require("./roles")(rolesService);
-  const authController = require("./auth")(authenticationService, config);
+  const postsController = require("./posts/posts.controller")(
+    postsService,
+    cacheService
+  );
+  const usersController = require("./users/users.controller")(usersService);
+  const rolesController = require("./roles/roles.controller")(rolesService);
+  const authController = require("./authentication/authentication.controller")(
+    authenticationService,
+    config
+  );
 
   router.use("/posts", postsController);
   router.use("/users", usersController);
