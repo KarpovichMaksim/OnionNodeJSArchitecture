@@ -1,5 +1,5 @@
 const Promise = require("bluebird");
-const hash = require("../helpers/hash");
+const hash = require("../../helpers/hash");
 
 class AuthenticationService {
   constructor(usersRepository, rolesRepository, errors) {
