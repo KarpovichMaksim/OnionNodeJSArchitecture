@@ -23,7 +23,11 @@ module.exports = (db, config) => {
     db.roles,
     errors
   );
-  const authorizationService = new AuthorizationService(db.roles, errors);
+  const authorizationService = new AuthorizationService(
+    db.users,
+    db.roles,
+    errors
+  );
   const cacheService = new CacheService();
 
   // Controllers

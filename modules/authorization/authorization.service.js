@@ -15,9 +15,32 @@ const permissions = {
 };
 
 class AuthorizationService {
-  constructor(rolesRepository, errors) {
+  constructor(usersRepository, rolesRepository, errors) {
+    this.usersRepository = usersRepository;
     this.rolesRepository = rolesRepository;
     this.errors = errors;
+  }
+  async getPermissions(id) {
+    const [UserDB, roleDB] = await Promise.all([
+      this.usersRepository.findOne({
+        where: {
+          id,
+        },
+      }),
+      this.rolesRepository.findOne({
+        where: {
+          name: "administrator",
+        },
+      }),
+    ]);
+
+    if (!UserDB || !roleDB) {
+      throw this.errors.invalidId;
+    }
+
+    const hasRole = await UserDB.hasRole(roleDB);
+
+    return hasRole;
   }
 
   async checkPermissions(user, route) {
@@ -29,17 +52,30 @@ class AuthorizationService {
       throw this.errors.accessDenied;
     }
 
-    const role = await this.rolesRepository.findOne({
-      where: {
-        name: permissions[route],
-      },
-    });
+    const [UserDB, roleDB] = await Promise.all([
+      this.usersRepository.findOne({
+        where: {
+          id: user,
+        },
+      }),
+      this.rolesRepository.findOne({
+        where: {
+          name: permissions[route],
+        },
+      }),
+    ]);
 
-    const hasRole = await user.hasRole(role);
+    if (!UserDB || !roleDB) {
+      throw this.errors.invalidId;
+    }
+
+    const hasRole = await UserDB.hasRole(roleDB);
 
     if (!hasRole) {
       throw this.errors.accessDenied;
     }
+
+    return hasRole;
   }
 }
 
