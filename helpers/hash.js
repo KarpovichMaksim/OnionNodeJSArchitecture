@@ -1,9 +1,11 @@
+const bcrypt = require("bcryptjs");
+
 module.exports = {
   get: (plain) => {
-    return plain;
+    return bcrypt.hashSync(plain);
   },
 
   isValid: (plain, hash) => {
-    return plain === hash;
+    return bcrypt.compareSync(plain, hash);
   },
 };
