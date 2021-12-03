@@ -10,6 +10,7 @@ module.exports = (
 ) => {
   const router = express.Router();
 
+  //controller changes
   const postsController = require("./posts/posts.controller")(
     postsService,
     cacheService
@@ -21,6 +22,7 @@ module.exports = (
     config
   );
 
+  //router settings
   router.use("/posts", postsController);
   router.use("/users", usersController);
   router.use("/roles", rolesController);
