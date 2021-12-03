@@ -8,6 +8,7 @@ class CrudController {
 
     this.readAll = this.readAll.bind(this);
     this.read = this.read.bind(this);
+
     this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
