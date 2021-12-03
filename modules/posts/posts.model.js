@@ -10,7 +10,6 @@ module.exports = (Sequelize, sequelize) => {
     content: Sequelize.STRING,
     date: Sequelize.DATEONLY,
     rating: Sequelize.INTEGER,
-
     draft: Sequelize.BOOLEAN,
   });
 };
