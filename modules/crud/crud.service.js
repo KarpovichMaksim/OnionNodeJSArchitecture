@@ -45,13 +45,11 @@ class CrudService {
 
   async create(data) {
     const item = await this.repository.create(data);
-
     return item.get({ plain: true });
   }
 
   async update(id, data) {
     await this.repository.update(data, { where: { id: id }, limit: 1 });
-
     return this.read(id);
   }
 
